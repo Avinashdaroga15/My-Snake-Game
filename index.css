@@ -7,20 +7,24 @@ h1{
     text-align: center;
     font-size: 50px;
     font-family:"Fredoka One";
-    margin-bottom: 10px;
-    
+    margin: 12vh 0vh;
+    animation: loadRemainTxt 700ms ease-in 100ms forwards;
 }
 
-.body{
+body{
     background-image: url(background.jpeg);
     background-attachment: fixed;
     background-size: 100% 100%;
-    min-height: 100vh;
     background-repeat: no-repeat;
+}
+
+.body{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
 .head{
@@ -31,4 +35,52 @@ h1{
 } 
 #welcome{
     font-size: 50px;
+    transform: scale(3);
+    animation: welcome_load 700ms ease-in 100ms forwards;
+}
+
+@keyframes welcome_load{
+    0%{
+        transform: scale(0);
+    }
+    70%{
+        transform: scale(4);
+    }
+    100%{
+        transform: scale(3);
+    }
+}
+
+@keyframes loadRemainTxt{
+    0%{
+        transform: scale(0);
+    }
+    70%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+#statBtn{
+    padding: 3vh 5vh;
+    font-size: 1.7em;
+    font-weight: bold;
+    border-radius: 50%;
+    animation: btnAnim 700ms ease-in 1500ms;
+    animation-fill-mode: forwards;
+    /* transform: translateY(1000%); */
+    opacity: 0;
+}
+
+@keyframes btnAnim {
+    0%{
+        /* transform: translateX(-200%); */
+        opacity: 0;
+    }
+    100%{
+        /* transform: translateX(0%); */
+        opacity: 1;
+    }
 }
