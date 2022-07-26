@@ -1,15 +1,15 @@
 let buttnDiv = document.createElement('div');
 let buttn = document.createElement('button');
 let bodyDiv = document.querySelector(".body");
-let container = document.getElementById('container');
+let container = document.getElementById('container-1');
 
 //function for event listener
 function startGame(){
     container.style.display = "none";
-    secondVeiw();
+    secondView();
 }
 
-function secondVeiw(){
+function secondView(){
     
 }
 

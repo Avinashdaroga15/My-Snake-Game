@@ -30,11 +30,11 @@ h1{
     border-radius: 50%;
 } 
 
-/* #board{
+#board{
     background-color: rgb(4, 40, 60);
-    width: 65vmin;
-    height: 65vmin;
-    border: 25px solid rgb(206, 213, 217);
+    width: 70vmin;
+    height: 70vmin;
+    border: 10px solid rgb(206, 213, 217);
     box-shadow: 0px 3px 10px 10px #09273d;
     display: grid;
     grid-template-columns: repeat(21, 1fr);
@@ -44,20 +44,21 @@ h1{
 #scoreBox{
     position: absolute;
     top: 9px;
-    right: 80px;
+    right: 45px;
     font-size: 39px;
     font-family:"Pacifico";
-} */
+} 
 
-/* #highscoreBox{
+#highscoreBox{
     position: absolute;
     top: 59px;
-    right: 50px;
+    right: 12px;
     font-size: 39px;
     font-family:"Pacifico";
-} */
+    margin-bottom: 2vh;
+}
 
-/* .snake{
+.snake{
     background-color: rgb(0, 0, 0);
     border: .25vmin solid white;
     border-radius: 50%;
@@ -66,11 +67,11 @@ h1{
 .stone{
     background: rgb(185, 41, 41);
     border: .25vmin solid white;
-    border-radius: 8px;
+    border-radius: 50%;
 }
 
 .food{
     background: rgb(61, 182, 31);
     border: .25vmin solid white;
     border-radius: 50%;
-} */
+}
