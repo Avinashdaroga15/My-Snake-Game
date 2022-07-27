@@ -34,6 +34,9 @@ function gameEngine(){
         score = 0; 
         speed = 3;
         alert("Game Over. Press any key to play again!");
+        setTimeout(()=>{
+            location.reload();
+        },0)
         snakeArr = [{x: 15, y: 15}];
         scoreBox.innerHTML = "Score: " + score;
         musicSound.play();
@@ -59,19 +62,25 @@ function gameEngine(){
         a = 2;
         b = 20;
         cactusPos1 = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+        if(cactusPos1.x ==food.x && cactusPos1.y ==food.y){
+            cactusPos1 = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+        }
     }
     else if(snakeArr[0].y === stone.y && snakeArr[0].x ===stone.x){
-          
-        snakeArr.pop();
-        let a = 2;
-        let b = 20;
-        speed--;
-        score--;
-        scoreBox.innerHTML = "Score: " + score;
-        stone = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
-        a = 2;
-        b = 20;
-        food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+        if(snakeArr.length==1){
+            location.reload();
+        }else{
+            snakeArr.pop();
+            let a = 2;
+            let b = 20;
+            speed--;
+            score--;
+            scoreBox.innerHTML = "Score: " + score;
+            stone = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+            a = 2;
+            b = 20;
+            food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+        }
     }
     // Moving the snake
     for (let i = snakeArr.length - 2; i>=0; i--) { 
@@ -99,9 +108,14 @@ function gameEngine(){
     });
     // Display the food
     foodElement = document.createElement('div');
+    let mouse = document.createElement('img');
+    mouse.setAttribute('src','mouse1.png');
+    mouse.style.maxWidth = "100%";
+    mouse.style.maxHeight = "100%";
     foodElement.style.gridRowStart = food.y;
     foodElement.style.gridColumnStart = food.x;
-    foodElement.classList.add('food')
+    // foodElement.classList.add('food')
+    foodElement.appendChild(mouse);
     board.appendChild(foodElement);
 
     // display the stone
@@ -154,6 +168,9 @@ function randomPosOfCactus(){
     let a = 2;
     let b = 20;
     cactusPos2 = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+    if(cactusPos2.x ==food.x && cactusPos2.y ==food.y){
+        randomPosOfCactus();
+    }
 }
 
 
@@ -232,7 +249,7 @@ window.addEventListener('keydown', e =>{
 
 });
 //random positioning of cactus
-setInterval(randomPosOfCactus,5000)
+setInterval(randomPosOfCactus,5000);
 
 // function fun(){  
 //     document.getElementById("reset").reset();  
