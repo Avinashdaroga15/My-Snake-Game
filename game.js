@@ -95,11 +95,20 @@ function gameEngine(){
     board.innerHTML = "";
     snakeArr.forEach((e, index)=>{
         let snakeElement = document.createElement('div');
+        if(index==0){
+            let snakeImg = document.createElement('img');
+            snakeImg.setAttribute('src','snake2.png');
+           
+            snakeImg.style.maxWidth = "100%";
+            snakeImg.style.maxHeight = "100%";
+            snakeElement.appendChild(snakeImg);
+        }
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;
 
         if(index === 0){
-            snakeElement.classList.add('head');
+            // snakeElement.classList.add('head');
+            console.log("hare krsna")
         }
         else{
             snakeElement.classList.add('snake');
@@ -107,7 +116,7 @@ function gameEngine(){
         board.appendChild(snakeElement);
     });
     // Display the food
-    foodElement = document.createElement('div');
+    let foodElement = document.createElement('div');
     let mouse = document.createElement('img');
     mouse.setAttribute('src','mouse1.png');
     mouse.style.maxWidth = "100%";
