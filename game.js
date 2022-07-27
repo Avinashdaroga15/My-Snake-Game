@@ -5,7 +5,7 @@ const gameOverSound = new Audio('gameover.mp3');
 const moveSound = new Audio('move.mp3');
 const musicSound = new Audio('music.mp3');
 const board = document.getElementById("board");
-let speed = 2;
+let speed = 3;
 let score = 0;
 let lastPaintTime = 0;
 let snakeArr = [{x: 15, y: 15}];
@@ -32,8 +32,10 @@ function gameEngine(){
         musicSound.pause();
         inputDir =  {x: 0, y: 0}; 
         score = 0; 
+        speed = 3;
         alert("Game Over. Press any key to play again!");
         snakeArr = [{x: 15, y: 15}];
+        scoreBox.innerHTML = "Score: " + score;
         musicSound.play();
     }
      
@@ -67,7 +69,9 @@ function gameEngine(){
         score--;
         scoreBox.innerHTML = "Score: " + score;
         stone = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
-        
+        a = 2;
+        b = 20;
+        food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
     }
     // Moving the snake
     for (let i = snakeArr.length - 2; i>=0; i--) { 
